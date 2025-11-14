@@ -1,6 +1,6 @@
 import glob
 
-SAMPLES = ["ERR4398741", "ERR4398768"]
+SAMPLES = ["ERR4398741", "ERR4398768", "ERR4398769"]
 
 
 rule all:
