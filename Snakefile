@@ -444,17 +444,17 @@ rule gtdb_tk:
 		"tools",
 		"gtdbtk/2.1.1"
 	input:
-		infile="results/drep/drep2.done",
-		indir="results/drep2/dereplicated_genomes/"
+		infile="results/drep/drep2.done"
 	output: 
 		flag= "results/gtdbtk/classify.done",
 	params:
-		outdir= "results/gtdbtk"
+		outdir= "results/gtdbtk", 
+		indir="results/drep2/dereplicated_genomes/"
 	threads: 
 		40
 	shell:		
 		"""
-		gtdbtk classify_wf --genome_dir {input.indir} --out_dir {params.outdir} --extension fa --cpus {threads}
+		gtdbtk classify_wf --genome_dir {params.indir} --out_dir {params.outdir} --extension fa --cpus {threads}
 		touch {output.flag}
 		"""
 	
